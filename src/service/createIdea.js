@@ -11,7 +11,8 @@ exports.createIdea = (req, res) => {
     !req.body.title ||
     !req.body.description ||
     !req.body.lookingFor ||
-    !req.body.createdBy
+    !req.body.createdBy||
+    !req.body.email
   ) {
     res.status(400).send({
       success: false,
@@ -26,7 +27,8 @@ exports.createIdea = (req, res) => {
     description: req.body.description,
     lookingFor: req.body.lookingFor,
     createdBy: req.body.createdBy,
-    dateCreated: firebase.firestore.FieldValue.serverTimestamp(),
+    email: req.body.email,
+      dateCreated: firebase.firestore.FieldValue.serverTimestamp(),
   };
   //then create your database
   db.collection("Ideas")

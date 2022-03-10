@@ -32,8 +32,7 @@ exports.createUser = (req, res) => {
       res.status(201).send({
         success: true,
         message: "account created",
-        //we want to send back a token inside token we send user data (header,signature,payload)
-        token: user, //add this to token later email pass admin etc
+        token: user, 
       });
     })
     .catch((err) =>
